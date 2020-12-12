@@ -1,0 +1,107 @@
+<!-- 
+1 : prompt 상자 띄우고 [아이디] 입력
+2 : [아이디]가 "abc"일 경우 3으로 이동
+3 : prompt 상자 띄우고 [암호] 입력
+4 : [암호]가 "123" 일 경우 5로 이동,
+     아닐경우 3으로 이동
+5 : 웹 화면에 "로그인 성공.." 출력
+
+ -->
+
+ <!DOCTYPE html>
+ <html>
+ <meta charset="utf-8">
+ <head>
+ 	<title></title>
+ </head>
+ <body>
+ 
+<script type="text/javascript">
+	
+
+
+	var id_error_cnt = 0;
+	var id_error_chance = 3;
+
+	var pwd_error_cnt = 0;
+	var pwd_error_chance = 3;
+
+	function check_id(){
+
+		var id = prompt("아이디 입력 요망", "");
+
+		if (id!="cshwan23"){
+
+			id_error_cnt++;
+
+			if(id_error_cnt < id_error_chance){
+			alert("아이디를" +id_error_cnt+"회 잘못 입력하셨습니다.");
+			check_id();
+			}
+		}
+
+	}
+
+
+	function check_pwd(){
+		var pwd = prompt("비밀번호 입력 요망", "");
+
+		if(pwd!="tmdghks10."){
+
+			pwd_error_cnt++;
+			if (pwd_error_cnt<pwd_error_chance) {
+			alert("비밀번호를"+pwd_error_cnt+"회 잘못 입력하셨습니다.");
+			check_pwd();
+			}
+		}
+	}
+
+	function controll(){
+
+		check_id();
+		if (id_error_cnt == id_error_chance){
+			document.write("[아이디]"+id_error_cnt+"회 입력 실패로 로그인 실패...");
+			return;
+		}
+		check_pwd();
+		if (pwd_error_cnt==pwd_error_chance){
+			document.write("[비밀번호]"+pwd_error_cnt+"회 입력 실패로 로그인 실패...");
+			return;
+		}
+
+		document.write("로그인 성공..!!");
+	}
+	controll();
+	
+
+
+
+
+</script>
+
+
+
+
+ </body>
+ </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,67 @@
+<!-- 
+
+
+[window 객체]의 setTimeout(~,~)메소드와
+locateion 객체의 replace 메소드로
+지정한 시간 뒤에 페이지 이동을 한다.
+
+[window 객체의 setTimeout 메소드 호출 형식]
+window.setTimeout( function (){실행구문}, 지정초*1000)
+window.setTimeout( "실행구문", 지정초*1000)
+
+지정한 초 뒤에 실행 구문을 실행한다.
+window 객체의 메위주는 window 라는 변수에 저장되어 제공한다.
+
+
+
+
+location 객체의 replace 메소드 호출 방식
+location.replace("이동할 URL 주소")
+
+
+
+ -->
+
+
+
+
+<!DOCTYPE html>
+<html><meta charset="utf-8">
+<head>
+	<title></title>
+	<script type="text/javascript">
+		
+		window.setTimeout('location.replace("http://www.naver.com");',
+		5000);
+
+		// function timer(){
+		// 	window.setTimeout('location.replace("http://www.naver.com");',5000);
+		// }
+
+
+		function timer2(){
+
+			var url = prompt("5초 뒤에 이동할 URL 주소를 입력해주세요","");
+			window.setTimeout(
+
+				function(){
+					location.replace(url)
+				},1000*5
+				);
+		}
+
+	</script>
+
+
+</head>
+<body onload="timer2();"><center>
+
+	이동중입니다
+
+
+
+
+	
+
+</body>
+</html>

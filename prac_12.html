@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+
+	<title></title>
+
+<script type="text/javascript">
+	
+	function getRandomNum(minNum, maxNum){
+
+
+		return Math.floor(Math.random()*(maxNum-minNum+1)+minNum);
+	}
+
+
+
+	function getRandomNum_arr(minNum, maxNum,n){
+
+		var arr = [];
+
+		while(arr.length<n){
+
+			var randomNum = getRandomNum(minNum , maxNum);
+
+			if(is_of_arr(arr,randomNum)==false){
+				arr.push(randomNum);
+			}
+		}
+		arr.sort(function(left,right){return left-right;});
+		return arr;
+	}
+	function is_of_arr( arrObj, data){
+
+		var flag = false;
+
+			for(var i=0; i<arrObj.length; i++){
+				if(arrObj[i] ==data){
+				flag = true;
+				break;
+			}
+		}
+		
+		return flag;
+	}
+
+
+</script>
+
+
+</head>
+<body>
+<script type="text/javascript">
+//----------------------------------
+// Math.메소드
+// max | min | ceil | floor | round |
+// abs | random |
+
+//----------------------------------
+	var kor = 85.4;
+	var eng = 81.5;
+	var mat = 74.9;
+
+	// 최대값 리턴 매소드
+	// Math.max(~,~,~)
+	document.write(Math.max(kor,eng,mat)+"<hr>");
+
+	// 최소값 리턴 메소드
+	// Math.min(~,~,~)
+	document.write(Math.min(kor,eng,mat)+"<hr>");
+
+	// 소수점 올림 메소드
+	// Math.ceil(~)
+	// 커진다 
+	document.write(Math.ceil(kor)+"<br>"); // 86
+	document.write(Math.ceil(eng)+"<br>"); // 82
+	document.write(Math.ceil(mat)+"<br>"); // 75
+	document.write(Math.ceil(-7.1)+"<br>"); // -7
+	document.write(Math.ceil(7.0)+"<hr>"); //7
+
+
+	// 소수점 내림 메소드
+	// Math.floor(~)
+	// 작아진다
+	document.write(Math.floor(kor)+"<br>");//85
+	document.write(Math.floor(eng)+"<br>");//81
+	document.write(Math.floor(mat)+"<br>");//74
+	document.write(Math.floor(-7.1)+"<br>");//-8
+	document.write(Math.floor(7.0)+"<hr>");//7
+
+	//소수점 반올림 메소드
+	// Math.round(~)
+	// 5이상 올림
+	// 5이상 내림
+	document.write(Math.round(kor)+"<br>");//85
+	document.write(Math.round(eng)+"<br>");//82
+	document.write(Math.round(mat)+"<br>");//75
+	document.write(Math.round(-7.1)+"<br>");//-7
+	document.write(Math.round(7.0)+"<hr>");//7
+
+
+
+	// 양수로 바꾸는 메소드
+	// Math.abs(~)
+	// 음수든 양수든 다 양수로 변환
+	document.write(Math.abs(-7.2)+"<hr>");//7
+
+
+	// 0~1미만의 실수를 리턴하는 메소드
+	// Math.random()
+	document.write(Math.random()+"<hr>");//0.2349837521
+
+	// 0~45 미만의 무작위 실수를 1개 리턴하는 메소드
+	document.write(Math.random()*45 +"<hr>")
+
+	// 1~46 미만의 무작위 실수를 1개 리턴
+	document.write(Math.random()*45+1 +"<hr>")
+
+	// 1~46 미만의 무작위 정수를 1개 리턴
+	document.write(Math.floor(Math.random()*45+1)+"<hr>")
+
+
+	document.write(
+			Math.floor(Math.random()*45+1)
+			+ " " + Math.floor(Math.random()*45+1)
+			+ " " + Math.floor(Math.random()*45+1)
+			+ " " + Math.floor(Math.random()*45+1)
+			+ " " + Math.floor(Math.random()*45+1)
+			+ " " + Math.floor(Math.random()*45+1)
+			+"<hr>"
+
+	)
+
+//*******************************************************
+document.write("로또 번호 1000원 어치 출력하기 for <br><br>");
+//*******************************************************
+
+	var lottos = [];
+
+	for ( var i = 0; i < 6; i++){
+
+
+		var randomNum = Math.floor(Math.random()*45+1);
+
+		var flag = false;
+		for(var j=0; j<lottos.length; j++){
+			if(lottos[j]==randomNum){
+
+				flag = true;
+				break;
+			}
+		}
+		if(flag==true){
+			i--;
+			continue;
+		}
+		lottos.push(randomNum);
+
+
+	}
+	lottos.sort(function(left,right){return left-right;});
+	document.write(lottos.join(" ")+"<hr>");
+
+
+
+
+
+//*******************************************************
+document.write("로또 번호 1000원 어치 출력하기 while <br><br>");
+//*******************************************************
+
+	var lottos = [];
+
+	while(lottos.length<6) {
+
+		var randomNo = Math.floor(Math.random()*45+1)
+
+		
+		var flag = false;
+		for(var j=0; j<lottos.length; j++){
+			if(lottos[j]==randomNo){
+
+				flag = true;
+				break;
+			}
+		}
+		if(flag==false){
+			lottos.push(randomNo);
+		}
+		
+
+	}
+	lottos.sort(function(left,right){return left-right;});
+	document.write(lottos.join(" ")+"<hr>");
+
+
+
+
+//*******************************************************
+document.write("로또 번호 5000원 어치 출력하기 <방법1> <br><br>");
+//*******************************************************
+
+	for(var i =1; i<=5; i++){
+
+		var lottos = [];
+
+		while(lottos.length<6) {
+
+			var randomNo = Math.floor(Math.random()*45+1)
+
+			
+			var flag = false;
+			for(var j=0; j<lottos.length; j++){
+				if(lottos[j]==randomNo){
+
+					flag = true;
+					break;
+				}
+			}
+			if(flag==false){
+				lottos.push(randomNo);
+			}
+			
+
+		}
+		lottos.sort(function(left,right){return left-right;});
+		document.write(lottos.join(" ")+"<br>");
+		document.write("---------------------"+"<br>");
+
+	}
+
+
+
+//*******************************************************
+document.write("<hr>로또 번호 5000원 어치 출력하기 <방법2> <br><br>");
+//*******************************************************
+
+	for (var i = 1; i<=6; i++){
+
+
+		var lottos = [];
+
+		for(var j = 1; j <=45; j++){
+
+			lottos.push(j);
+		}
+
+		for(var j = 0; j<10000; j++){
+
+			var idx1 = Math.floor(Math.random()*45)
+			var idx2 = Math.floor(Math.random()*45)
+
+			var tmp = lottos[idx1];
+			lottos[idx1] = lottos[idx2];
+			lottos[idx2] = tmp;
+
+		}
+
+		var arr = lottos.slice(0,6);
+
+		arr.sort(function(left,right){return left-right; });
+
+		document.write(arr.join(" ")+"<br>");
+
+
+	}
+
+	document.write("<hr>");
+
+
+
+//******************************************************* 
+document.write("<hr>로또 번호 5000원 어치 출력하기 <방법3> <br><br>");
+//*******************************************************
+
+document.write("<table border=1 bordercolor='blue' cellpadding=5 style='border-collapse:collapse;'>");
+
+
+for(var j = 0 ; j<5; j++){
+
+	document.write("<tr align='cener'><td>"+getRandomNum_arr(1,45,6).join("<td>"));
+}
+
+document.write("</table>");
+document.write("<hr>");
+
+
+
+
+
+
+
+
+
+
+	
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+

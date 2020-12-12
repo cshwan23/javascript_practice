@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<title></title>
+
+	<script type="text/javascript">
+		
+		var no = 0;
+
+
+
+
+		function getTot(kor, eng, math){
+
+			var tot = kor + eng + math;
+
+			return tot;
+
+		}
+
+
+
+		function getAvg(kor, eng, math){
+
+			var tot = getTot(kor, eng, math);
+
+			var avg = tot/3;
+
+			return avg;
+		}
+
+
+
+		function getHakjum(kor, eng, math){
+
+			var avg = getAvg(kor, eng, math);
+
+			var hakjum = "F";
+
+
+			if (avg >= 90 && avg <= 100){
+				hakjum = "A";
+			}else if(avg >= 80 && avg < 90){
+				hakjum = "B";
+			}else if(avg >= 70 && avg < 80){
+				hakjum = "C";
+			}else if(avg >= 60 && avg < 70){
+				hakjum = "D";
+			}
+			return hakjum;
+		}
+
+
+
+		function getPass(kor, eng, math){
+
+			var avg = getAvg(kor, eng, math);
+
+			var result = "불합격"+ "(";
+
+
+
+			// 평균 60점 이상이고 모두 40점 이상일경우 합격
+
+			if(avg>=60 && kor>=40 && eng>=40 && math>=40 ){
+
+				result = "합격";
+
+			}else{
+				var cnt = 0;
+
+				if (avg<60){
+
+					if(cnt++>0){result = result + ", ";}
+					result = result + "평균 60점 이하";
+				}
+
+				if(kor<40){
+					if(cnt++>0){result = result + ", ";}
+					result = result + "국어 점수 40점 이하"; 
+				}
+
+				if(eng<40){
+					if(cnt++>0){result = result + ", ";}
+					result = result + "영어 점수 40점 이하";
+				}
+
+				if(math<40){
+					if(cnt++>0){result = result + ", ";}
+					result = result + "수학 점수 40점 이하";
+				}
+
+				result = result + ")";
+			}
+
+			return result;
+		}
+
+
+		function getSungjukInfo(stu_name, kor, eng, math){
+
+			var tot = getTot(kor, eng, math);
+
+			var avg = getAvg(kor,eng, math);
+
+			avg = avg.toFixed(1);
+
+			var pass = getPass(kor, eng, math);
+
+			var hakjum = getHakjum(kor,eng,math);
+
+			var html_src = 
+
+			"<tr align=center>"
+			+ "<td>"+(++no)+"</td>"
+			+ "<td>"+stu_name+"</td>"
+			+ "<td>"+tot+"</td>"
+			+ "<td>"+avg+"</td>"
+			+ "<td>"+hakjum+"</td>"
+			+ "<td>"+pass+"</td>"
+			+ "</tr>";
+
+			return html_src;
+
+		}
+
+
+	</script>
+
+</head>
+<body>
+<script type="text/javascript">
+	// var kor = 20, eng = 30, math = 36;
+
+	// document.write("사오정 총점 : " + getTot(kor,eng,math)+"<hr>");
+	// document.write("사오정 평균 : " + getAvg(kor,eng,math)+"<hr>");
+	// document.write("사오정 학점 : " + getHakjum(kor,eng,math)+"<hr>");
+	// document.write("사오정 합격여부 : " + getPass(kor,eng,math)+"<hr>");
+
+	document.write("<table border=1 align=center><tr bgcolor='lightblue'><th>번호<th>학생명<th>총점<th>평균<th>학점<th>합격여부</tr>");
+	document.write(getSungjukInfo("황보민",20,40,70));
+	document.write(getSungjukInfo("최승환",70,80,90));
+	document.write(getSungjukInfo("문유진",90,70,40));
+	document.write("</table>");
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

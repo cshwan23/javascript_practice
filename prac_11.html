@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<title></title>
+
+<script type="text/javascript">
+
+
+	// 요일 숫자 -> 요일 한글로 변경하는 함수
+	function getWeek1( weekNo) {
+
+
+		var week = "";
+
+		if(weekNo == 0 ){
+
+			week = "일";
+		}else if (weekNo == 1){
+
+			week = "월"; 
+		}else if (weekNo == 2){
+
+			week = "화"; 
+		}else if (weekNo == 3){
+
+			week = "수"; 
+		}else if (weekNo == 4){
+
+			week = "목"; 
+		}else if (weekNo == 5){
+
+			week = "금"; 
+		}else if (weekNo == 6){
+
+			week = "토"; 
+		}
+
+		return week;
+
+	}
+
+
+
+
+
+
+	// 년 월 일 요일 오전 오후 시 분 초를 저장한 Array 객체를 리턴하는 함수
+	function getDateArr(dateObj){
+
+		var dateArr = [];
+
+
+
+		var am_pm = "오전";
+
+		var year = dateObj.getFullYear();
+
+		var month = dateObj.getMonth()+1;
+
+		var date = dateObj.getDate();
+
+		var day = getweek1(dateObj.getDay());
+
+		var hour = dateObj.getHours();
+
+		var minute = dateObj.getMinutes();
+
+		var second = dateObj.getSeconds();
+
+
+		if( month <10){
+			month= "0" + month;
+		}
+		if( date <10){
+			date= "0" + date;
+		}
+		if(hour>12){
+			am_pm = "오후";
+		}else{
+			am_pm = "오전";
+		}
+		if( hour >12){
+			hour= hour - 12;
+		}		
+		if( hour <10){
+			hour= "0" + hour;
+		}
+		if( minute <10){
+			minute= "0" + minute;
+		}
+		if( second <10){
+			second= "0" + second;
+		}
+
+		 dateArr.push(year);
+		 dateArr.push(month);
+		 dateArr.push(date);
+		 dateArr.push(day);
+		 dateArr.push(am_pm);
+		 dateArr.push(hour);
+		 dateArr.push(minute);
+		 dateArr.push(second);
+
+
+		 return dateArr;
+
+	};
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</head>
+<body>
+<script type="text/javascript">
+	
+
+
+	var today = new Date();
+
+	var birth = new Date( 1990, 2, 3);
+
+	document.write("현재 시간 => "
+
+				+ today.getFullYear() + "년" 
+				+ (today.getMonth()+1) + "월"
+				+ today.getDate() + "일"
+				+ getWeek1(today.getDay()) + "요일"
+				+ today.getHours() + "시"
+				+ today.getMinutes() + "분"
+				+ today.getSeconds() + "초"
+				+ "<hr>"
+
+				);
+
+
+	document.write("내 생일 시간 => "
+
+				+ birth.getFullYear() + "년" 
+				+ (birth.getMonth()) + "월"
+				+ birth.getDate() + "일"
+				+ getWeek1(birth.getDay()) + "요일"
+				+ birth.getHours() + "시"
+				+ birth.getMinutes() + "분"
+				+ birth.getSeconds() + "초"
+				+ "<hr>"
+
+				);
+
+	var seunghwan_birthday = new Date( 1990, 2, 3 + 100 );
+
+	document.write("돌잔치 = " +seunghwan_birthday.getFullYear() + "년" 
+
++(seunghwan_birthday.getMonth()+1) + "월"
++seunghwan_birthday.getDate() + "일"
++getWeek1(seunghwan_birthday.getDay()) + "요일"+ "<hr>"
+					);
+
+
+// 나는 몇일을 살았나?
+
+var shwan_birth = new Date( 1990,2,3);
+
+var today = new Date();
+
+
+//getTime 메소드 : 1970.1.1~ 1990.2.3
+var second1 = shwan_birth.getTime();
+
+
+//1970.1.1~2020.12.2
+var second2 = today.getTime();
+
+var second3 = (second2 - second1)/1000;
+
+document.write("내가 산 초 =>" +second3+"<hr>");
+
+var date = second3/(60*60*24);
+
+document.write("내가 산 일 =>" +date+"<hr>");
+
+
+var dateArr = getDateArr(today);
+
+document.write("왜안되냐");
+
+document.write("바보네 진짜" +dateArr[0]+"년"
+				+dateArr[1]+"월"
+				+dateArr[2]+"일"
+				+dateArr[3]+"요일"
+				+dateArr[4]+" "
+				+dateArr[5]+"시"
+				+dateArr[6]+"분"
+				+dateArr[7]+"초"
+);
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<title></title>
+
+
+	<script type="text/javascript">
+		
+		function checkJumin_num(jumin_num) {
+			
+
+			if (jumin_num.indexOf("-")>=0){
+
+				return new RegExp(/-[13]/).test(jumin_num);
+
+			}else{
+
+				return new RegExp(/^......[13]/).test(jumin_num);
+
+			}
+
+		}
+
+	</script>
+</head>
+<body>
+<script type="text/javascript">
+	
+//**************************************************
+var id = "abc123";
+
+
+
+var regExp = new RegExp(/^[a-z][a-z0-9_]{5,14}$/);
+
+
+var result = regExp.test(id);
+
+
+if(regExp.test(id)){
+
+document.write(id+"올바름"+"<hr>");
+
+}else{
+document.write(id+"틀림"+"<hr>");
+}
+
+
+//**************************************************
+
+
+
+
+var pwd = "1234fff";
+
+
+
+var regExp = new RegExp(/^[a-z0-9]{6,13}$/);
+
+var result = regExp.test(pwd);
+
+if(result){
+
+	document.write(pwd+"올바름"+"<hr>");
+}else{
+	document.write(pwd+"틀림"+"<hr>");
+}
+
+
+//**************************************************
+
+
+
+var phone = "010-4168-061";
+
+var regExp =new RegExp(/^(010|012|016|017|019)-[0-9]{3,4}-[0-9]{4}$/);
+
+
+var result = regExp.test(phone);
+
+if(result){
+	document.write(phone+"올바름"+"<hr>");
+}else{
+	document.write(phone+"틀림"+"<hr>");
+}
+
+
+
+
+//**************************************************
+
+
+
+var stu_name = "최승환";
+
+var  regExp = new RegExp(/^[가-힣]{2,}$/);
+
+var result = regExp.test(stu_name);
+
+if(result){
+
+document.write(stu_name+"올바름"+"<hr>");
+
+
+}else{
+
+document.write(stu_name+"틀림"+"<hr>");
+}
+
+
+//**************************************************
+
+var user_name = "sdfsdaf";
+
+var regExp = new RegExp(/^(([a-zA-Z]{2,})||([가-힣]{2,}))$/);
+
+var result = regExp.test(user_name);
+
+if (result){
+
+document.write(user_name+"올바름"+"<hr>");
+
+
+}else{
+
+document.write(user_name+"틀림"+"<hr>");
+}
+
+
+
+//**************************************************
+
+
+
+var str = "아나 ";
+
+var regExp = new RegExp(/[ ]{1,}/);
+
+var result = regExp.test(str);
+
+
+if(result){
+
+document.write(str+"공백이 한개 이상 있음"+"<hr>");
+
+
+}else{
+
+document.write(str+"틀림"+"<hr>");
+}
+
+
+
+//**************************************************
+
+var str = "아나";
+
+var regExp = new RegExp(/^[^ ]{1,}$/);
+
+var result = regExp.test(str);
+
+
+if(result){
+
+document.write(str+"공백이 하나도 없습니다"+"<hr>");
+
+
+}else{
+
+document.write(str+"공백이 있습니다."+"<hr>");
+}
+
+
+
+//**************************************************
+
+var str = "    ㅇ ";
+
+var regExp = new RegExp(/^[ ]{1,}$/);
+
+var result = regExp.test(str);
+
+
+if(result){
+
+document.write(str+"공백으로만 이루어져 있습니다"+"<hr>");
+
+
+}else{
+
+document.write(str+"공백으로만 이루어져 있지않습니다"+"<hr>");
+}
+
+document.write("되냐?.<hr>")
+
+
+//**************************************************
+//외자
+//김씨
+
+
+
+var str = "김란아";
+
+var regExp = new RegExp(/^[김][가-힣]$/);
+
+var result = regExp.test(str);
+
+
+if(result){
+
+document.write(str+"김이고,두글자로만 이루어져 있습니다"+"<hr>");
+
+
+}else{
+
+document.write(str+"두글자로만 이루어져 있지않습니다"+"<hr>");
+}
+
+
+//**************************************************
+//주민번호 남녀 구분
+
+
+var jumin_num = "900203-1726113";
+
+
+
+if((jumin_num.indexOf("-1")>=0)||(jumin_num.indexOf("-3")>=0)){
+
+document.write(jumin_num+"남성임"+"<hr>");
+
+}else{
+
+document.write(jumin_num+"여성임"+"<hr>");
+
+
+}
+
+if(checkJumin_num(jumin_num)){
+
+	document.write(jumin_num+"남성임"+"<hr>");
+}else{
+	document.write(jumin_num+"여성임"+"<hr>");
+}
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
